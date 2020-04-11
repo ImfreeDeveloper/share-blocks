@@ -1,0 +1,77 @@
+$color-white: #fff;
+$color-blue: blue;
+$color-green: green;
+$color-red: red;
+$color-black: #000;
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  display: flex;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: .3rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: all .3s ease;
+  flex-shrink: 0;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  &-loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: fade_out($color-white, .2);
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 20;
+      border: .4rem solid $color-white;
+      border-top: .4rem solid $color-black;
+      border-radius: 50%;
+      width: 1.8rem;
+      height: 1.8rem;
+      animation: spin 2s linear infinite;
+    }
+  }
+  &-blue {
+    color: $color-white;
+    background-color: $color-blue;
+    &:hover {
+      background-color: darken($color-blue, 5%);
+    }
+  }
+  &-green {
+    color: $color-white;
+    background-color: $color-green;
+    &:hover {
+      background-color: darken($color-green, 5%);
+    }
+  }
+  &[disabled] {
+    pointer-events: none;
+  }
+}
+
+.wrp-btn {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

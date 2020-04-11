@@ -1,0 +1,145 @@
+$color-grey: #999999;
+$color-border: #e5e5e5;
+$color-focus: #000;
+$color-white: #fff;
+$color-red: red;
+
+select {
+  display: block;
+}
+
+// Для nice-select
+.wrap-select {
+  margin: 2rem 0;
+  width: 100%;
+}
+.wrap-select-nice {
+  position: relative;
+  height: 4.3rem;
+}
+.wrapper-select-nice {
+  border: .1rem solid $color-border;
+  border-radius: .3rem;
+  cursor: pointer;
+  background: $color-white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  overflow: hidden;
+  transition: all .3s ease;
+  ::-webkit-scrollbar { width: .3rem; height: .3rem;}
+  ::-webkit-scrollbar-button {  background-color: $color-white; }
+  ::-webkit-scrollbar-track {  background-color: #999;}
+  ::-webkit-scrollbar-track-piece { background-color: $color-white;}
+  ::-webkit-scrollbar-thumb { height: 5rem; background-color: #666; border-radius: .3rem;}
+  ::-webkit-scrollbar-corner { background-color: #999;}
+  ::-webkit-resizer { background-color: #666;}
+  .select-nice {
+    display: none;
+  }
+  .nice-selected {
+    display: block;
+    padding: 1.2rem 1.5rem;
+    position: relative;
+    white-space: nowrap;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 1rem;
+      margin: auto;
+      width: 1.2rem;
+      height: 1rem;
+      background-image: url(/images/svg/select-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all .3s ease;
+    }
+  }
+  .nice-select {
+    &-list {
+      transition: all .3s ease;
+      background: #fff;
+      position: relative;
+      z-index: 10;
+      padding-left: 0;
+      margin: 0;
+    }
+    &-item {
+      padding: 1rem 1.5rem;
+      transition: all .3s ease;
+      &:hover {
+        background-color: fade_out($color-grey, .9);
+      }
+      &.selected {
+        background-color: fade_out($color-grey, .9);
+      }
+    }
+  }
+  &.active {
+    border: .1rem solid darken($color-border, 60%) !important;
+    z-index: 9;
+    .nice-select {
+      &-list {
+        z-index: 11;
+      }
+    }
+    .nice-selected {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &:hover {
+    border: .1rem solid darken($color-border, 30%);
+  }
+  &.is-danger {
+    border: .1rem solid $color-red;
+  }
+}
+
+// Для простого select
+.wrap-select-simple {
+  border-radius: .3rem;
+  border: .1rem solid $color-border;
+  margin: 2rem 0;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .3s ease;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 1rem;
+    margin: auto;
+    width: 1.2rem;
+    height: 1rem;
+    background-image: url(/images/svg/select-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .3s ease;
+  }
+  &:hover {
+    border: .1rem solid darken($color-border, 30%);
+  }
+}
+
+select {
+  appearance: none;
+  box-sizing: border-box;
+  border: none;
+  padding: 1.2rem 1.5rem;
+  display: block;
+  bottom: 0;
+  outline: none;
+  width: 100%;
+  height: 4.3rem;
+}
+

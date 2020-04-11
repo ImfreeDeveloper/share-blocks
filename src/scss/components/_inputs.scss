@@ -1,0 +1,69 @@
+$color-grey: #999999;
+$color-border: #e5e5e5;
+$color-focus: #000;
+$color-red: red;
+
+// поля ввода
+*::-webkit-input-placeholder{
+  color: $color-grey;
+  opacity: 1;
+}
+*:-moz-placeholder{
+  color: $color-grey;
+  opacity: 1;
+}
+*::-moz-placeholder{
+  color: $color-grey;
+  opacity: 1;
+}
+*:-ms-input-placeholder{
+  color: $color-grey;
+  opacity: 1;
+}
+::placeholder{color:$color-grey}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea
+{
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: .3rem;
+  padding: 0 1.5rem;
+  height: 5rem;
+  border: .1rem solid $color-border;
+  transition: all .3s ease-in-out;
+  width: 100%;
+  background: #fff;
+  appearance: none;
+  font-size: inherit;
+  &:hover {
+    border: .1rem solid darken($color-border, 30%);
+  }
+  &:focus {
+    border: .1rem solid $color-focus;
+  }
+  &.is-danger {
+    border: .1rem solid $color-red;
+  }
+}
+
+textarea {
+  padding: 1.5rem;
+  resize: none;
+  height: auto;
+  font-size: 1.6rem;
+}
+
+// Классы для полей ввода
+.wrp-field {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}

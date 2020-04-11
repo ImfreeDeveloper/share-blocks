@@ -1,0 +1,68 @@
+$color-text: #000;
+$color-red: red;
+$color-check: #217EFF;
+$color-border-no-check: #e5e5e5;
+$size-border: .2rem;
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  .checkbox {
+    display: none;
+    &.is-danger {
+      & + .checkbox-custom {
+        border: $size-border solid $color-red;
+      }
+    }
+    &:checked {
+      & + .checkbox-custom {
+        border: $size-border solid $color-check;
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .checkbox-custom {
+    width: 2rem;
+    height: 2rem;
+    border: $size-border solid $color-border-no-check;
+    position: relative;
+    flex-shrink: 0;
+    transition: border .2s ease-in-out;
+    cursor: pointer;
+    margin-right: 1rem;
+    &:hover {
+      border: $size-border solid darken($color-border-no-check, 30%);
+    }
+    &:before {
+      opacity: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      top: -.4rem;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      height: .6rem;
+      width: 1rem;
+      border-left: .2rem solid $color-check;
+      border-bottom: .2rem solid $color-check;
+      transform: rotate(-45deg);
+      transition: opacity .2s ease-in-out;
+    }
+  }
+  .label {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    a {
+      color: $color-text;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

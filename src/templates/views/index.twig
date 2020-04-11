@@ -1,0 +1,77 @@
+{% extends "../layouts/main.twig" %}
+{# Подключение макроса обратной связи #}
+{% set message='asd4a' %}
+{# Подключение макроса обратной связи #}
+{% from "../helpers/macro.twig" import feedback_form, project %}
+
+{% block content %}
+  {# Поля ввода #}
+  <p class="wrp-field">
+    <label>Поле инпут:</label>
+    <input type="text" placeholder="Шаблон" />
+  </p>
+  <p class="wrp-field">
+    <label>Поле текстариа:</label>
+    <textarea name="text" placeholder="textarea"></textarea>
+  </p>
+  {# Кнопки #}
+  <button class="btn btn-blue">Кнопка Кнопка Кнопка Кнопка Кнопка</button>
+  <button class="btn btn-blue" disabled>
+    <span class="btn-loader"></span>
+    Кнопка
+  </button>
+  <div class="wrp-btn">
+    <button class="btn btn-green">Кнопка</button>
+  </div>
+  <a href="#" class="btn btn-green">Кнопка</a>
+  <input type="submit" class="btn btn-blue">
+  {# select #}
+  <div class="wrap-select">
+    <select class="select-nice">
+      <option value="">Не выбран</option>
+      <option value="ITEM1">ITEM1</option>
+      <option value="ITEM2">ITEM2</option>
+      <option value="ITEM3">ITEM3</option>
+      <option value="ITEM4">ITEM4</option>
+      <option value="ITEM5">ITEM5</option>
+    </select>
+  </div>
+  <div class="wrap-select-simple">
+    <select>
+      <option value="">Не выбран</option>
+      <option value="ITEM1">ИП Александров</option>
+      <option value="ITEM2">ИП Петров</option>
+      <option value="ITEM3">ООО «Рога и Копыта»</option>
+      <option value="ITEM4">ОАО «Винни-пух»</option>
+      <option value="ITEM5">ОАО «Андрей и Дмитрий»</option>
+    </select>
+  </div>
+  {# popup #}
+  <div class="modal-popup">
+    <div class="modal-popup-wrapper">
+      <div class="modal-popup-container">
+        <div class="modal-popup-body">
+          <h3>Заголовок</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias, aperiam at, atque, blanditiis consequuntur cum deserunt eius eum excepturi facere id illo nemo nihil recusandae repellendus saepe similique voluptate!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias, aperiam at, atque, blanditiis consequuntur cum deserunt eius eum excepturi facere id illo nemo nihil recusandae repellendus saepe similique voluptate!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias, aperiam at, atque, blanditiis consequuntur cum deserunt eius eum excepturi facere id illo nemo nihil recusandae repellendus saepe similique voluptate!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias, aperiam at, atque, blanditiis consequuntur cum deserunt eius eum excepturi facere id illo nemo nihil recusandae repellendus saepe similique voluptate!</p>
+        </div>
+        <span class="modal-popup-close"></span>
+      </div>
+    </div>
+  </div>
+  {# checkbox #}
+  <label class="checkbox-wrap">
+    <input class="checkbox"
+           type="checkbox"
+           name="checkbox-iagree"
+        {#           :class="{'input': true, 'is-danger': errors.has('checkbox-iagree') }"#}
+           checked
+    >
+    <span class="checkbox-custom"></span>
+    <span class="label">Я соглашаюсь с <a href="#" target="_blank">условиями обработки и использования</a> моих персональных данных</span>
+  </label>
+
+{% endblock %}
+

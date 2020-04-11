@@ -1,0 +1,45 @@
+{# Макрос для добавления bootstrap-style элементов формы #}
+{% macro form_input(name, value='', title=name, type='text') %}
+<div class="form-group">
+	<label class="form-label" for="{{ name }}_id">{{ title }}</label>
+	<input class="form-control" id="{{ name }}_id" name="{{ name }}" type="{{ type }}" value="{{ value | escape }}">
+</div>
+{% endmacro %}
+
+{% macro form_textarea(name, value='', title=name) %}
+<div class="form-group">
+	<label class="form-label" for="{{ name }}_id">{{ title }}</label>
+	<textarea class="form-control" name="{{ name }}" id="{{ name }}_id" cols="20" rows="5"></textarea>
+</div>
+{% endmacro %}
+
+{# Макрос для создания формы обратной связи #}
+{% macro feedback_form(action="", method="POST") %}
+<form class="form" action="{{ action }}" method="{{ method }}">
+	{{ form_input("Name", '', "Имя") }}
+	{{ form_input("Email", '', "Email", 'email') }}
+	{{ form_textarea("Message", '', 'Сообщение') }}
+	<button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endmacro %}
+
+{# представление проектов #}
+{% macro project(name, description = '', src='/images/error.png') %}
+	<div class="row">
+		<div class="col-md-2">
+			<img class="img-responsive" src="{{ src }}" alt="">
+		</div>
+		<div class="col-md-10">
+			<h3>{{ name }}</h3>
+			<p>{{ description }}</p>
+			<a href="#" class="btn btn-default">Подробнее</a>
+		</div>
+	</div>
+{% endmacro %}
+
+{# svg спрайт #}
+{% macro svg(id, className) %}
+    <svg class="{{ className }}">
+        <use xlink:href="/images/svg/sprite.svg#{{ id }}"></use>
+    </svg>
+{% endmacro %}
